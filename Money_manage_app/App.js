@@ -19,9 +19,11 @@ export default function App() {
 
       if (difference > 0) {
         setResult(`Great job! You saved $${difference.toFixed(2)} this week!`);
-      } else if (difference < 0) {
+      } 
+      else if (difference < 0) {
         setResult(`You spent $${Math.abs(difference).toFixed(2)} more this week. Try to save more next time!`);
-      } else {
+      } 
+      else {
         setResult("You broke even this week.");
       }
 
@@ -32,13 +34,16 @@ export default function App() {
 
         if (remaining > 0) {
           setGoalMessage(`You need to save $${remaining.toFixed(2)} more to reach your goal.`);
-        } else {
+        } 
+        else {
           setGoalMessage(`You've reached your goal! You can spend $${Math.abs(remaining).toFixed(2)} for the rest of the month.`);
         }
-      } else {
+      } 
+      else {
         setGoalMessage("Please enter a valid savings goal.");
       }
-    } else {
+    } 
+    else {
       setResult("Please enter valid numbers for both weeks.");  
     }
   };
@@ -46,6 +51,8 @@ export default function App() {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Money Tracker</Text>
+  
+      {/* Week 1 Input */}
       <TextInput
         style={styles.input}
         placeholder="Enter Week 1 total money"
@@ -53,6 +60,8 @@ export default function App() {
         value={week1}
         onChangeText={setWeek1}
       />
+  
+      {/* Week 2 Input */}
       <TextInput
         style={styles.input}
         placeholder="Enter Week 2 total money"
@@ -60,6 +69,8 @@ export default function App() {
         value={week2}
         onChangeText={setWeek2}
       />
+  
+      {/* Savings Goal Input */}
       <TextInput
         style={styles.input}
         placeholder="Enter your savings goal for the month"
@@ -67,14 +78,20 @@ export default function App() {
         value={goal}
         onChangeText={setGoal}
       />
+  
+      {/* Button to check savings */}
       <Pressable style={styles.button} onPress={calculateSavings}>
         <Text style={styles.buttonText}>Check Savings</Text>
       </Pressable>
+  
+      {/* Display the result */}
       <Text style={styles.resultText}>{result}</Text>
+  
+      {/* Display goal message */}
       <Text style={styles.goalText}>{goalMessage}</Text>
     </View>
   );
-};
+} 
 
 
 
