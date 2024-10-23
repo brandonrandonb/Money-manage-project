@@ -83,17 +83,11 @@ export default function App() {
       <Pressable style={styles.button} onPress={calculateSavings}>
         <Text style={styles.buttonText}>Check Savings</Text>
       </Pressable>
-  
-      {/* Display the result */}
       <Text style={styles.resultText}>{result}</Text>
-  
-      {/* Display goal message */}
       <Text style={styles.goalText}>{goalMessage}</Text>
     </View>
   );
 } 
-
-
 
 const styles = StyleSheet.create({
   container: {
