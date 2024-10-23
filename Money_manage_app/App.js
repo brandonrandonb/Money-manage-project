@@ -2,17 +2,17 @@ import React, { useState } from 'react';
 import { View, Text, TextInput, Pressable, StyleSheet } from 'react-native';
 
 export default function App() {
-  const [week1, setWeek1] = useState('');  // State for week 1 input
-  const [week2, setWeek2] = useState('');  // State for week 2 input
-  const [goal, setGoal] = useState('');    // State for goal input
-  const [result, setResult] = useState('');  // State for the result message
-  const [goalMessage, setGoalMessage] = useState('');  // State for goal message
+  const [week1, setWeek1] = useState(''); 
+  const [week2, setWeek2] = useState('');  
+  const [goal, setGoal] = useState('');    
+  const [result, setResult] = useState('');  
+  const [goalMessage, setGoalMessage] = useState('');  
 
-  // Function to calculate savings or spending
+
   const calculateSavings = () => {
-    const moneyWeek1 = parseFloat(week1);  // Convert week 1 input to a number
-    const moneyWeek2 = parseFloat(week2);  // Convert week 2 input to a number
-    const savingGoal = parseFloat(goal);   // Convert goal input to a number
+    const moneyWeek1 = parseFloat(week1);  
+    const moneyWeek2 = parseFloat(week2);  
+    const savingGoal = parseFloat(goal);   
 
     if (!isNaN(moneyWeek1) && !isNaN(moneyWeek2)) {
       const difference = moneyWeek2 - moneyWeek1;
@@ -25,9 +25,9 @@ export default function App() {
         setResult("You broke even this week.");
       }
 
-      // Check if the goal input is valid
+
       if (!isNaN(savingGoal)) {
-        const totalSavings = moneyWeek2; // Total savings so far
+        const totalSavings = moneyWeek2; 
         const remaining = savingGoal - totalSavings;
 
         if (remaining > 0) {
@@ -39,15 +39,13 @@ export default function App() {
         setGoalMessage("Please enter a valid savings goal.");
       }
     } else {
-      setResult("Please enter valid numbers for both weeks.");  // Handle invalid input
+      setResult("Please enter valid numbers for both weeks.");  
     }
   };
-
+  
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Money Tracker</Text>
-
-      {/* Week 1 Input */}
       <TextInput
         style={styles.input}
         placeholder="Enter Week 1 total money"
@@ -55,8 +53,6 @@ export default function App() {
         value={week1}
         onChangeText={setWeek1}
       />
-
-      {/* Week 2 Input */}
       <TextInput
         style={styles.input}
         placeholder="Enter Week 2 total money"
@@ -64,8 +60,6 @@ export default function App() {
         value={week2}
         onChangeText={setWeek2}
       />
-
-      {/* Goal Input */}
       <TextInput
         style={styles.input}
         placeholder="Enter your savings goal for the month"
@@ -73,22 +67,17 @@ export default function App() {
         value={goal}
         onChangeText={setGoal}
       />
-
-      {/* Button replaced with Pressable */}
       <Pressable style={styles.button} onPress={calculateSavings}>
         <Text style={styles.buttonText}>Check Savings</Text>
       </Pressable>
-
-      {/* Display the result */}
       <Text style={styles.resultText}>{result}</Text>
-
-      {/* Display the goal message */}
       <Text style={styles.goalText}>{goalMessage}</Text>
     </View>
   );
-}
+};
 
-// Styling for the app
+
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
